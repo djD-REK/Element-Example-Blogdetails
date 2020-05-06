@@ -1,13 +1,14 @@
-import React from 'react';
-import { css, StyleSheet } from 'aphrodite/no-important';
-import { getStyles } from './getStyles';
-import { defaultConfig } from './configs';
-
-const Block = props => {
-    const classes = StyleSheet.create(getStyles(props));
-    return <h1 className={css(classes.example)}>{props.text}</h1>;
-};
-
-Block.defaultProps = defaultConfig;
-
-export default Block;
+import React from "react"
+import { defaultConfig } from "./configs"
+function StarterBlock(props) {
+  const { data: blog = {} } = props
+  return (
+    <React.Fragment>
+      <h1>{props.text}</h1>
+      <h2>{blog.title}</h2>
+      <p>{blog.body}</p>
+    </React.Fragment>
+  )
+}
+StarterBlock.defaultProps = defaultConfig
+export default StarterBlock
